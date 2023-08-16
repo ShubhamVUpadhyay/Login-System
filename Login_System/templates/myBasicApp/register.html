@@ -1,0 +1,16 @@
+{% extends 'myBasicApp/base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+<h1 class="text-primary my-5">Signup</h1>
+{% if fn.registered %}
+<h3>Thank You for Registering to Our site</h3>
+{% else %}
+<form method="post" class="form-group">
+    {% csrf_token %}
+    {{ fn.as_p }}
+    <input type="submit" class="btn btn-primary mt-2" value="Register">
+</form>
+</div>
+{% endif %}
+{% endblock %}

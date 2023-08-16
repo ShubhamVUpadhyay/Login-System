@@ -1,0 +1,25 @@
+{% extends 'myBasicApp/base.html' %}
+{% block content %}
+<div class="jumbotron bg-dark">
+    <ul class="navbar-nav navbar-light  navbar-expand justify-content-center">
+    <li class="nav-item m-4"><a href="{% url 'home' %}" class="nav-link lead">Home</a></li>
+    <li class="nav-item m-4"><a href="{% url 'myBasicApp:register' %}" class="nav-link lead">Register</a></li>
+    {% if user.is_authenticated %}
+    <li class="nav-item m-4"><a href="{% url 'myBasicApp:logout' %}" class="nav-link lead">LogOut</a></li>
+    {% else %}
+    <li class="nav-item m-4"><a href="{% url 'myBasicApp:login' %}" class="nav-link lead">LogIn</a></li>
+
+{% endif %}
+</ul></div>
+<div class="jumbotron my-5 text-center bg-primary text-white">
+<h1>Welcome To Login System</h1>
+{% if user.is_authenticated %}
+<p class="lead mt-3 text-dark">You have been Logged IN Succesfully</p>
+{% else %}
+<p class="lead mt-3">Please Login With Your Credentials / Register Yourself</p>
+</ul></div>
+{% endif %}
+
+</div>
+{% endblock %}
+
